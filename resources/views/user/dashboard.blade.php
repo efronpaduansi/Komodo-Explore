@@ -29,7 +29,9 @@
                                 @foreach($myBooking as $book)
                                     <tr>
                                        <td>{{ $book->number }} <br>
+                                           @if($book->status === 'Confirmed')
                                            <a href="{{ route('user.package_booking_ticket_download', $book->number) }}"><i class="fas fa-file-download"></i> Unduh Tiket</a>
+                                           @endif
                                        </td>
                                        <td>{{ date('d-m-Y', strtotime($book->date ))}}</td>
                                         <td>{{ $book->guests->fullname }}</td>

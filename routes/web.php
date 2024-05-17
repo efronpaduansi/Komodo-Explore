@@ -15,7 +15,7 @@ Route::name('web.')->group(function() {
 
     Route::get('/destinations', [\App\Http\Controllers\Website\DestinationController::class, 'index'])->name('destionation');
     Route::get('/about', [\App\Http\Controllers\Website\AboutController::class, 'index'])->name('about');
-    Route::get('/contact', [\App\Http\Controllers\Website\ContactController::class, 'index'])->name('contact');
+//    Route::get('/contact', [\App\Http\Controllers\Website\ContactController::class, 'index'])->name('contact');
 
     Route::middleware(['guest'])->group(function() {
         Route::get('/login', [\App\Http\Controllers\Website\AuthController::class, 'index'])->name('login');
@@ -116,6 +116,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
        Route::get('/users/add', 'create')->name('users_create');
        Route::post('/users/add', 'store')->name('users_store');
        Route::delete('/users/{id}', 'destroy')->name('users_destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\Setting\SettingController::class)->group(function (){
+       Route::get('/settings/web-setting', 'index')->name('settings_index');
+       Route::put('/settings/web-setting', 'update')->name('settings_update');
     });
 
 });

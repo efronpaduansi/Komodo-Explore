@@ -104,16 +104,16 @@
         @endif
 
         <li
-            class="sidebar-item  has-sub">
+            class="sidebar-item  has-sub {{ request()->is('admin/settings/*') ? 'active' : '' }}">
             <a href="#" class='sidebar-link'>
                 <i class="bi bi-gear-fill"></i>
                 <span>Pengaturan</span>
             </a>
 
             <ul class="submenu ">
-{{--                <li class="submenu-item  ">--}}
-{{--                    <a href="component-accordion.html" class="submenu-link">Website</a>--}}
-{{--                </li>--}}
+                <li class="submenu-item  {{ request()->is('admin/settings/web-setting') ? 'active' : '' }}">
+                    <a href="{{ route('admin.settings_index') }}" class="submenu-link">Website</a>
+                </li>
                 <li class="submenu-item  ">
                     <a href="component-alert.html" class="submenu-link">Akun</a>
                 </li>
