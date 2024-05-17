@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Website\PackageBookingStoreRequest;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PDF;
 
 class PackageBookingController extends Controller
 {
@@ -117,6 +118,14 @@ class PackageBookingController extends Controller
         $payChannels = \App\Models\PaymentChannel::where('status', 'active')->get();
         return view('website.pages.payment_list', compact('invoice', 'payChannels', 'bookingNumber'));
 
+    }
+
+    //Download booking ticket
+    public function ticketDownload($number)
+    {
+        $myTicket = \App\Models\Booking::where('number', $number)->first();
+        $pdf = PDF::loadview('user.my_ticket',['ticket'=>$myTicket]);
+        return $pdf->download('ticket-' . $myTicket->number);
     }
 
 }

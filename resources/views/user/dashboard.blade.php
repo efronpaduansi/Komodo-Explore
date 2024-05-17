@@ -19,17 +19,21 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Tanggal</th>
+                                    <th>No. Transaksi</th>
+                                    <th>Tanggal Berangkat</th>
                                     <th>Nama Pemesan</th>
+                                    <th>Paket Wisata</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($myBooking as $book)
                                     <tr>
-                                       <td>{{ $book->number }}</td>
+                                       <td>{{ $book->number }} <br>
+                                           <a href="{{ route('user.package_booking_ticket_download', $book->number) }}"><i class="fas fa-file-download"></i> Unduh Tiket</a>
+                                       </td>
                                        <td>{{ date('d-m-Y', strtotime($book->date ))}}</td>
                                         <td>{{ $book->guests->fullname }}</td>
+                                        <td>{{ $book->packages->package_name }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -44,22 +48,15 @@
                 <div class="d-flex flex-column text-center bg-white mb-5 py-5 px-4">
                     <img src="{{ asset('travel/img/user.jpg') }}" class="img-fluid mx-auto mb-3" style="width: 100px;">
                     <h3 class="text-primary mb-3">Hi, {{ Auth::user()->name }}</h3>
-                    <p>Conset elitr erat vero dolor ipsum et diam, eos dolor lorem, ipsum sit no ut est  ipsum erat kasd amet elitr</p>
+                    <p>
+                        {{ Auth::user()->email }}
+                    </p>
                     <div class="d-flex justify-content-center">
                         <a class="text-primary px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
+                           Profil Saya
                         </a>
                         <a class="text-primary px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-primary px-2" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-primary px-2" href="">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="text-primary px-2" href="">
-                            <i class="fab fa-youtube"></i>
+                           Pengaturan
                         </a>
                     </div>
                     <form action="{{ route('user.logout') }}" method="post">

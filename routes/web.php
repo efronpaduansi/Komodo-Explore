@@ -36,6 +36,7 @@ Route::name('user.')->middleware(['auth'])->group(function(){
     Route::get('/packages/booking/{slug}', [\App\Http\Controllers\Website\PackageBookingController::class, 'index'])->name('package_booking');
     Route::post('/packages/booking', [\App\Http\Controllers\Website\PackageBookingController::class, 'bookingStore'])->name('package_booking_store');
     Route::get('/packages/booking/payment/{number}', [\App\Http\Controllers\Website\PackageBookingController::class, 'bookingPayment'])->name('package_booking_payment');
+    Route::get('/packages/booking/download/{number}', [\App\Http\Controllers\Website\PackageBookingController::class, 'ticketDownload'])->name('package_booking_ticket_download');
 });
 
 
