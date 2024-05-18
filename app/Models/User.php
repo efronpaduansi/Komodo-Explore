@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'user_roles_id',
         'guests_id',
+        'image_path',
     ];
 
     /**
@@ -53,5 +54,10 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(UserRole::class, 'user_roles_id', 'id');
+    }
+
+    public function getImagePathAttribute($value)
+    {
+        return asset('uploads/images/' . $value);
     }
 }

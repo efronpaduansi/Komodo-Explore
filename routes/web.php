@@ -123,6 +123,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
        Route::put('/settings/web-setting', 'update')->name('settings_update');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\Setting\ProfileSettingController::class)->group(function (){
+       Route::get('/settings/profile', 'index')->name('settings_profile');
+       Route::put('/settings/profile/{user}', 'update')->name('settings_profile_update');
+       Route::put('/settings/profile/{user}/update-image', 'updateImage')->name('settings_profile_update_image');
+    });
+
 });
 
 

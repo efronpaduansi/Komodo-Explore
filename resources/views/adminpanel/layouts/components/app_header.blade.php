@@ -23,7 +23,7 @@
                             </div>
                             <div class="user-img d-flex align-items-center">
                                 <div class="avatar avatar-md">
-                                    <img src="{{ asset('mazer/compiled/jpg/1.jpg') }}">
+                                    <img src="{{ Auth::user()->image_path }}" alt="profile image">
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                         <li>
                             <h6 class="dropdown-header">Hi, {{ Auth::user()->name }}!</h6>
                         </li>
-                        <li><a class="dropdown-item" href="#"><i class="icon-mid bi bi-person me-2"></i> My
+                        <li><a class="dropdown-item" href="{{ route('admin.settings_profile') }}"><i class="icon-mid bi bi-person me-2"></i> My
                                 Profile</a></li>
                             <hr class="dropdown-divider">
                         </li>

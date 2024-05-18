@@ -114,8 +114,8 @@
                 <li class="submenu-item  {{ request()->is('admin/settings/web-setting') ? 'active' : '' }}">
                     <a href="{{ route('admin.settings_index') }}" class="submenu-link">Website</a>
                 </li>
-                <li class="submenu-item  ">
-                    <a href="component-alert.html" class="submenu-link">Akun</a>
+                <li class="submenu-item  {{ request()->is('admin/settings/profile') ? 'active' : '' }}">
+                    <a href="{{ route('admin.settings_profile') }}" class="submenu-link">Akun</a>
                 </li>
             </ul>
         </li>
