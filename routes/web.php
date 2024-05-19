@@ -31,6 +31,10 @@ Route::name('web.')->group(function() {
 
 Route::name('user.')->middleware(['auth'])->group(function(){
     Route::get('/dashboard', [\App\Http\Controllers\User\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/my-profile', [\App\Http\Controllers\User\MyProfileController::class, 'index'])->name('my_profile');
+    Route::put('/my-profile/{user}', [\App\Http\Controllers\User\MyProfileController::class, 'update'])->name('my_profile_update');
+
+    // user logout
     Route::post('/dashboard', [\App\Http\Controllers\Website\AuthController::class, 'logout'])->name('logout');
 
     Route::get('/packages/booking/{slug}', [\App\Http\Controllers\Website\PackageBookingController::class, 'index'])->name('package_booking');

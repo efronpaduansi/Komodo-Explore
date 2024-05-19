@@ -57,9 +57,9 @@
                         <a class="text-primary px-2" href="">
                            Profil Saya
                         </a>
-                        <a class="text-primary px-2" href="">
+                        {{-- <a class="text-primary px-2" href="">
                            Pengaturan
-                        </a>
+                        </a> --}}
                     </div>
                     <form action="{{ route('user.logout') }}" method="post">
                         @csrf
