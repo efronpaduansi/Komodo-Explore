@@ -133,6 +133,10 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
        Route::put('/settings/profile/{user}/update-image', 'updateImage')->name('settings_profile_update_image');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\Hotel\HotelController::class)->group(function(){
+        Route::get('/hotels', 'index')->name('hotels_index');
+    });
+
 });
 
 

@@ -48,6 +48,22 @@
 
         <li
             class="sidebar-item {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
+            <a href="{{ route('admin.hotels_index') }}" class='sidebar-link'>
+                <i class="bi bi-bank2"></i>
+                <span>Hotel</span>
+            </a>
+        </li>
+
+        <li
+            class="sidebar-item {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
+            <a href="{{ route('admin.guests_index') }}" class='sidebar-link'>
+                <i class="bi bi-building"></i>
+                <span>Restoran</span>
+            </a>
+        </li>
+
+        <li
+            class="sidebar-item {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
             <a href="{{ route('admin.guests_index') }}" class='sidebar-link'>
                 <i class="bi bi-suitcase2-fill"></i>
                 <span>Customer</span>
