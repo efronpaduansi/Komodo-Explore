@@ -135,6 +135,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
 
     Route::controller(\App\Http\Controllers\Admin\Hotel\HotelController::class)->group(function(){
         Route::get('/hotels', 'index')->name('hotels_index');
+        Route::get('/hotels/add', 'create')->name('hotels_create');
+        Route::post('/hotels/add', 'store')->name('hotels_store');
     });
 
 });

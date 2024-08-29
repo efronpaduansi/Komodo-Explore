@@ -12,7 +12,7 @@
     <div class="col-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('admin.locations_create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Hotel Baru</a>
+                <a href="{{ route('admin.hotels_create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Hotel Baru</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -20,9 +20,15 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nama Lokasi</th>
-                                <th>Status</th>
-                                <th>Opsi</th>
+                                <th>Hotel</th>
+                                <th>Harga</th>
+                                <th>Waktu Checkin</th>
+                                <th>Waktu Checkout</th>
+                                <th>Alamat Lengkap</th>
+                                <th>Kota</th>
+                                <th>Email</th>
+                                <th>Telepon</th>
+                                <th>Website</th>
                             </tr>
                         </thead>
                         <tbody>
