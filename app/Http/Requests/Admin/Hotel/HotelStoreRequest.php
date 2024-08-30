@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Admin\Hotel;
 
-use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class HotelStoreRequest extends FormRequest
@@ -27,8 +26,8 @@ class HotelStoreRequest extends FormRequest
             'addName'       => ['required', 'string', 'max:50'],
             'addAddress'    => ['required', 'max:128'],
             'addCity'       => ['required', 'max:100'],
-            'addPhone'      => ['required', 'string', 'max:20',   Rule::unique('hotels', 'phone')->ignore($this->id)],
-            'addEmail'         => ['required', 'email', Rule::unique('hotels', 'email')->ignore($this->id)],
+            'addPhone'      => ['required', 'string', 'max:20', 'unique:hotels,phone'],
+            'addEmail'         => ['required', 'email', 'unique:hotels,email'],
             'addWebsite'       => ['string', 'url'],
             'addPrice'      => ['required', 'numeric'],
             'addCheckinTime'    => ['required'],
