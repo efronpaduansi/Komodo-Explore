@@ -47,7 +47,7 @@
         @endif
 
         <li
-            class="sidebar-item {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
+            class="sidebar-item {{ request()->is('admin/hotels') || request()->is('admin/hotels/*') ? 'active' : '' }}">
             <a href="{{ route('admin.hotels_index') }}" class='sidebar-link'>
                 <i class="bi bi-bank2"></i>
                 <span>Hotel</span>
