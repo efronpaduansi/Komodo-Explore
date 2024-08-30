@@ -138,7 +138,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
         Route::get('/hotels/add', 'create')->name('hotels_create');
         Route::post('/hotels/add', 'store')->name('hotels_store');
         Route::get('/hotels/{id}', 'edit')->name('hotels_edit');
-        Route::post('/hotels/{id}', 'update')->name('hotels_update');
+        Route::put('/hotels/{id}', 'update')->name('hotels_update');
         Route::delete('/hotels/{id}', 'destroy')->name('hotels_destroy');
     });
 
