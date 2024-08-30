@@ -21,6 +21,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>Hotel</th>
+                                <th>Deskripsi</th>
                                 <th>Harga</th>
                                 <th>Waktu Checkin</th>
                                 <th>Waktu Checkout</th>
@@ -29,10 +30,35 @@
                                 <th>Email</th>
                                 <th>Telepon</th>
                                 <th>Website</th>
+                                <th>Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($hotels as $hotel)
+                                <tr>
+                                    <td>{{ $hotel->id }}</td>
+                                    <td>{{ $hotel->name }}</td>
+                                    <td>{{ $hotel->description }}</td>
+                                    <td>{{ $hotel->price }}</td>
+                                    <td>{{ $hotel->checkin_time }}</td>
+                                    <td>{{ $hotel->checkout_time }}</td>
+                                    <td>{{ $hotel->address }}</td>
+                                    <td>{{ $hotel->city }}</td>
+                                    <td>{{ $hotel->email }}</td>
+                                    <td>{{ $hotel->phone }}</td>
+                                    <td>{{ $hotel->website }}</td>
+                                    <td>
+                                        <div class="d-flex">
+                                            <a href="{{ route('admin.hotels_edit', $hotel->id) }}" class="btn btn-sm btn-secondary me-2"><i class="far fa-edit"></i></a>
+                                            <form action="{{ route('admin.hotels_destroy', $hotel->id) }}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Hapus data ini?')"><i class="far fa-trash-alt"></i></button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

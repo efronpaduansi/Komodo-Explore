@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="d-flex mt-3">
-                    <a href="{{ route('admin.users_index') }}" class="btn btn-danger me-2">Batal</a>
+                    <a href="{{ route('admin.hotels_index') }}" class="btn btn-danger me-2">Batal</a>
                     <button type="submit" class="btn btn-success">Simpan</button>
                 </div>
             </form>

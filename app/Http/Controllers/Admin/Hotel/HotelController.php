@@ -52,4 +52,20 @@ class HotelController extends Controller
         }
         return back()->withErrors('Simpan gagal')->withInput();
     }
+
+    public function destroy($id)
+    {
+        if(is_null($id))
+        {
+            return back();
+        }
+
+        //Delete hotel data by Id
+        $delete = \App\Models\Hotel::findOrFail($id)->delete();
+
+        if($delete){
+            return back()->withSuccess('Hapus berhasil');
+        }
+        return back()->withErrors('Hapus gagal. Silahkan coba lagi!');
+    }
 }
