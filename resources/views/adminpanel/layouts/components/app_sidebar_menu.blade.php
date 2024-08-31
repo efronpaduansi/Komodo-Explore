@@ -55,8 +55,8 @@
         </li>
 
         <li
-            class="sidebar-item {{ request()->is('admin/guests') || request()->is('admin/guests/*') ? 'active' : '' }}">
-            <a href="{{ route('admin.guests_index') }}" class='sidebar-link'>
+            class="sidebar-item {{ request()->is('admin/restaurants') || request()->is('admin/restaurants/*') ? 'active' : '' }}">
+            <a href="{{ route('admin.restaurants_index') }}" class='sidebar-link'>
                 <i class="bi bi-building"></i>
                 <span>Restoran</span>
             </a>

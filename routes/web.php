@@ -142,6 +142,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
         Route::delete('/hotels/{id}', 'destroy')->name('hotels_destroy');
     });
 
+    Route::controller(\App\Http\Controllers\Admin\Restaurant\RestaurantController::class)->group(function(){
+        Route::get('/restaurants', 'index')->name('restaurants_index');
+        Route::get('/restaurants/add', 'create')->name('restaurants_create');
+        Route::post('/restaurants/add', 'store')->name('restaurants_store');
+        Route::get('/restaurants/{id}', 'edit')->name('restaurants_edit');
+        Route::put('/restaurants/{id}', 'update')->name('restaurants_update');
+        Route::delete('/restaurants/{id}', 'destroy')->name('restaurants_destroy');
+    });
+
 });
 
 
