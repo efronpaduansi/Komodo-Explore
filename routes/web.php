@@ -14,6 +14,10 @@ Route::name('web.')->group(function() {
     Route::get('/packages/{slug}', [\App\Http\Controllers\Website\PackageListController::class, 'show'])->name('package_show');
 
     Route::get('/destinations', [\App\Http\Controllers\Website\DestinationController::class, 'index'])->name('destionation');
+
+    Route::get('/hotels', [\App\Http\Controllers\Website\HotelController::class, 'index'])->name('hotels');
+    Route::get('/restaurants', [\App\Http\Controllers\Website\RestaurantController::class, 'index'])->name('restaurants');
+
     Route::get('/about', [\App\Http\Controllers\Website\AboutController::class, 'index'])->name('about');
 //    Route::get('/contact', [\App\Http\Controllers\Website\ContactController::class, 'index'])->name('contact');
 
@@ -131,6 +135,24 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function (){
        Route::get('/settings/profile', 'index')->name('settings_profile');
        Route::put('/settings/profile/{user}', 'update')->name('settings_profile_update');
        Route::put('/settings/profile/{user}/update-image', 'updateImage')->name('settings_profile_update_image');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\Hotel\HotelController::class)->group(function(){
+        Route::get('/hotels', 'index')->name('hotels_index');
+        Route::get('/hotels/add', 'create')->name('hotels_create');
+        Route::post('/hotels/add', 'store')->name('hotels_store');
+        Route::get('/hotels/{id}', 'edit')->name('hotels_edit');
+        Route::put('/hotels/{id}', 'update')->name('hotels_update');
+        Route::delete('/hotels/{id}', 'destroy')->name('hotels_destroy');
+    });
+
+    Route::controller(\App\Http\Controllers\Admin\Restaurant\RestaurantController::class)->group(function(){
+        Route::get('/restaurants', 'index')->name('restaurants_index');
+        Route::get('/restaurants/add', 'create')->name('restaurants_create');
+        Route::post('/restaurants/add', 'store')->name('restaurants_store');
+        Route::get('/restaurants/{id}', 'edit')->name('restaurants_edit');
+        Route::put('/restaurants/{id}', 'update')->name('restaurants_update');
+        Route::delete('/restaurants/{id}', 'destroy')->name('restaurants_destroy');
     });
 
 });
