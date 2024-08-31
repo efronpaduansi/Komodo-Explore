@@ -11,6 +11,8 @@
                 <div class="navbar-nav ml-auto py-0">
                     <a href="{{ route('web.package') }}" class="nav-item nav-link {{ request()->is('packages') || request()->is('packages/*') ? 'active' : '' }}">Paket Wisata</a>
                     <a href="{{ route('web.destionation') }}" class="nav-item nav-link {{ request()->is('destinations') ? 'active' : '' }}">Destinasi Wisata</a>
+                    <a href="{{ route('web.hotels') }}" class="nav-item nav-link {{ request()->is('hotels') ? 'active' : '' }}">Hotel</a>
+                    <a href="{{ route('web.restaurants') }}" class="nav-item nav-link {{ request()->is('restaurants') ? 'active' : '' }}">Restoran</a>
                     <a href="{{ route('web.about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">Tentang</a>
 {{--                    <a href="{{ route('web.contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Kontak</a>--}}
                     <a href="{{ route('web.login') }}" class="nav-item nav-link"><i class="fas fa-user-alt"></i></a>

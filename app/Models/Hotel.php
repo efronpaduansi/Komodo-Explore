@@ -34,4 +34,9 @@ class Hotel extends Model
         'checkout_time',
         'image_path',
     ];
+
+    public function getImagePathAttribute($value)
+    {
+        return asset('uploads/images/' . $value);
+    }
 }

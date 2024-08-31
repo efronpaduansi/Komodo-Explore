@@ -30,4 +30,9 @@ class Restaurant extends Model
         'opening_hours',
         'image_path',
     ];
+
+    public function getImagePathAttribute($value)
+    {
+        return asset('uploads/images/' . $value);
+    }
 }

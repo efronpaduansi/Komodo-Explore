@@ -14,6 +14,10 @@ Route::name('web.')->group(function() {
     Route::get('/packages/{slug}', [\App\Http\Controllers\Website\PackageListController::class, 'show'])->name('package_show');
 
     Route::get('/destinations', [\App\Http\Controllers\Website\DestinationController::class, 'index'])->name('destionation');
+
+    Route::get('/hotels', [\App\Http\Controllers\Website\HotelController::class, 'index'])->name('hotels');
+    Route::get('/restaurants', [\App\Http\Controllers\Website\RestaurantController::class, 'index'])->name('restaurants');
+
     Route::get('/about', [\App\Http\Controllers\Website\AboutController::class, 'index'])->name('about');
 //    Route::get('/contact', [\App\Http\Controllers\Website\ContactController::class, 'index'])->name('contact');
 
