@@ -54,6 +54,23 @@
                         </select>
                     </div>
                     <div class="form-group col-lg-6 col-md-6 col-sm-12 mandatory">
+                        <label for="hotels_id" class="form-label">Pilih Hotel</label>
+                        <select name="hotels_id" id="hotels_id" class="form-select choices" data-parsley-required="true">
+                            @foreach($hotels as $hotel)
+                                <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12 mandatory">
+                        <label for="restaurants_id" class="form-label">Pilih Restoran</label>
+                        <select name="restaurants_id" id="restaurants_id" class="form-select choices" data-parsley-required="true">
+                            @foreach($restaurants as $resto)
+                                <option value="{{ $resto->id }}">{{ $resto->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12 mandatory">
                         <label for="packageDescription" class="form-label">Deskripsi</label>
                         <textarea name="packageDescription" id="packageDescription" cols="30" rows="4" class="form-control" data-parsley-required="true"></textarea>
                     </div>

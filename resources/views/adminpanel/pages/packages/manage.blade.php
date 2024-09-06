@@ -23,6 +23,8 @@
                             <th>Durasi</th>
                             <th>Harga</th>
                             <th>Jml Peserta</th>
+                            <th>Hotel</th>
+                            <th>Restoran</th>
                             <th class="text-center">Opsi</th>
                         </tr>
                     </thead>
@@ -36,6 +38,8 @@
                                 <td>{{ $p->duration }}</td>
                                 <td>{{ "Rp." . number_format($p->price, 0, '.', '.') }}</td>
                                 <td>{{ $p->participant . " Peserta" }}</td>
+                                <td>{{ $p->hotel->name }}</td>
+                                <td>{{ $p->resto->name }}</td>
                                 <td class="d-flex justify-content-center">
                                     <a href="{{ route('admin.packages_edit', $p->id) }}" class="btn btn-sm btn-secondary mx-2"><i class="far fa-edit"></i></a>
                                     <form action="{{ route('admin.packages_destroy', $p->id) }}" method="post">
