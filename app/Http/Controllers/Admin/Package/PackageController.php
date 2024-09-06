@@ -15,14 +15,16 @@ class PackageController extends Controller
 {
     public function index()
     {
-        $packages = \App\Models\TourPackage::latest()->get();
+        $packages = \App\Models\TourPackage::latest()->with(['hotel', 'resto'])->get();
         return view('adminpanel.pages.packages.manage', compact('packages'));
     }
 
     public function create()
     {
         $locations = \App\Models\TourLocation::where('status', 'active')->get();
-        return view('adminpanel.pages.packages.add', compact('locations'));
+        $hotels = \App\Models\Hotel::get(['id', 'name']);
+        $restaurants = \App\Models\Restaurant::get(['id', 'name']);
+        return view('adminpanel.pages.packages.add', compact('locations', 'hotels', 'restaurants'));
     }
 
     public function store(PackageStoreRequest $request)
@@ -47,6 +49,8 @@ class PackageController extends Controller
                 'duration'      => $request->packageDuration,
                 'price'         => $request->packagePrice,
                 'participant'   => $request->packageParticipant,
+                'hotels_id'     => $request->hotels_id,
+                'restaurants_id'=> $request->restaurants_id,
             ];
 
             // Simpan data paket wisata

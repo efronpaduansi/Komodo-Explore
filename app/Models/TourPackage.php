@@ -17,6 +17,8 @@ class TourPackage extends Model
         'duration',
         'price',
         'participant',
+        'hotels_id',
+        'restaurants_id'
     ];
 
     //thumbnail accessor
@@ -39,5 +41,15 @@ class TourPackage extends Model
     public function locations()
     {
         return $this->belongsToMany(TourLocation::class, 'tour_package_locations', 'tour_packages_id', 'tour_locations_id');
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class, 'hotels_id', 'id');
+    }
+
+    public function resto()
+    {
+        return $this->belongsTo(Restaurant::class, 'restaurants_id', 'id');
     }
 }
