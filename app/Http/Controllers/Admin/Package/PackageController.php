@@ -114,8 +114,10 @@ class PackageController extends Controller
 
         // Dapatkan lokasi-lokasi yang terkait dengan paket wisata yang sedang diedit
         $selectedLocations = $package->locations->pluck('id')->toArray();
+        $hotels = \App\Models\Hotel::get(['id', 'name']);
+        $restaurants = \App\Models\Restaurant::get(['id', 'name']);
 
-        return view('adminpanel.pages.packages.edit', compact('package', 'locations', 'selectedLocations'));
+        return view('adminpanel.pages.packages.edit', compact('package', 'locations', 'selectedLocations', 'hotels', 'restaurants'));
     }
 
     public function update(PackageUpdateRequest $request,$id)
@@ -131,6 +133,8 @@ class PackageController extends Controller
                 'duration'      => $request->packageDuration,
                 'price'         => $request->packagePrice,
                 'participant'   => $request->packageParticipant,
+                'hotels_id'     => $request->hotels_id,
+                'restaurants_id'=> $request->restaurants_id,
             ];
 
             $updateData = \App\Models\TourPackage::findOrFail($id)->update($data);

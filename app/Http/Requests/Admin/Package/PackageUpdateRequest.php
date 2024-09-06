@@ -28,6 +28,8 @@ class PackageUpdateRequest extends FormRequest
             'packagePrice'              => 'required|numeric',
             'packageParticipant'        => 'required|numeric',
             'locations.*'               => 'exists:tour_locations,id',
+            'hotels_id' => 'required|exists:hotels,id',
+            'restaurants_id' => 'required|exists:restaurants,id'
         ];
     }
 
@@ -41,6 +43,8 @@ class PackageUpdateRequest extends FormRequest
             'packagePrice.numeric'             => 'Harga harus di isi angka!',
             'packageParticipant.required'             => 'Peserta tidak boleh kosong!',
             'packageParticipant.numeric'             => 'Peserta harus di isi angka!',
+            'hotels_id.required'            => 'Hotel tidak boleh kosong',
+            'restaurants_id.required'   => 'Restoran tidak boleh kosong',
         ];
     }
 }
