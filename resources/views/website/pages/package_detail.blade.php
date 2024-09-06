@@ -44,6 +44,14 @@
                             <td>{{ $package->participant . " Orang" }}</td>
                         </tr>
                         <tr>
+                            <th>Hotel</th>
+                            <td>{{ $package->hotel->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Restoran</th>
+                            <td>{{ $package->resto->name }}</td>
+                        </tr>
+                        <tr>
                             <th>Lokasi</th>
                             <td>
                                 @foreach($locations as $location)
