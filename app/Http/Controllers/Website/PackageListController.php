@@ -11,7 +11,7 @@ class PackageListController extends Controller
 {
     public function index()
     {
-        $packages = \App\Models\TourPackage::with(['hotel', 'resto'])->all();
+        $packages = \App\Models\TourPackage::with(['hotel', 'resto'])->get();
         return view('website.pages.package', compact('packages'));
     }
 
